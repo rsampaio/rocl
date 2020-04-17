@@ -12,6 +12,7 @@ mod json_schema;
 pub use self::json_schema::JsonSchema;
 mod last_operation_resource;
 pub use self::last_operation_resource::LastOperationResource;
+pub use self::last_operation_resource::State;
 mod maintenance_info;
 pub use self::maintenance_info::MaintenanceInfo;
 mod plan;

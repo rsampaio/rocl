@@ -1,6 +1,6 @@
 [package]
 name = "rocl"
-version = "0.0.4"
+version = "0.0.5-alpha.0"
 authors = ["Rodrigo Vaz"]
 description = "Rust OSB client library used by rocs generated with openapi-generator"
 license = "MIT"

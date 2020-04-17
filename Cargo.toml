@@ -1,0 +1,15 @@
+[package]
+name = "rocl"
+version = "0.0.1"
+authors = ["Rodrigo Vaz"]
+description = "Rust OSB client library used by rocs generated with openapi-generator"
+license = "MIT"
+
+[dependencies]
+serde = "^1.0"
+serde_derive = "^1.0"
+serde_json = "^1.0"
+url = "1.5"
+reqwest = "~0.9"
+
+[dev-dependencies]

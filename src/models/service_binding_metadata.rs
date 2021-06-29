@@ -10,16 +10,20 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingMetadata {
     #[serde(rename = "expires_at", skip_serializing_if = "Option::is_none")]
     pub expires_at: Option<String>,
+    #[serde(rename = "renew_before", skip_serializing_if = "Option::is_none")]
+    pub renew_before: Option<String>,
 }
 
 impl ServiceBindingMetadata {
     pub fn new() -> ServiceBindingMetadata {
         ServiceBindingMetadata {
             expires_at: None,
+            renew_before: None,
         }
     }
 }

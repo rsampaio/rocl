@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingVolumeMount {
     #[serde(rename = "driver")]
     pub driver: String,
@@ -21,23 +22,23 @@ pub struct ServiceBindingVolumeMount {
     #[serde(rename = "device_type")]
     pub device_type: DeviceType,
     #[serde(rename = "device")]
-    pub device: crate::models::ServiceBindingVolumeMountDevice,
+    pub device: Box<crate::models::ServiceBindingVolumeMountDevice>,
 }
 
 impl ServiceBindingVolumeMount {
     pub fn new(driver: String, container_dir: String, mode: Mode, device_type: DeviceType, device: crate::models::ServiceBindingVolumeMountDevice) -> ServiceBindingVolumeMount {
         ServiceBindingVolumeMount {
-            driver: driver,
-            container_dir: container_dir,
-            mode: mode,
-            device_type: device_type,
-            device: device,
+            driver,
+            container_dir,
+            mode,
+            device_type,
+            device: Box::new(device),
         }
     }
 }
 
 /// 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Mode {
     #[serde(rename = "r")]
     R,
@@ -45,7 +46,7 @@ pub enum Mode {
     Rw,
 }
 /// 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DeviceType {
     #[serde(rename = "shared")]
     Shared,

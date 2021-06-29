@@ -18,7 +18,7 @@ get the catalog of services that the service broker offers
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
 
 ### Return type
 

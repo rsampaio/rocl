@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingResouceObject {
     #[serde(rename = "app_guid", skip_serializing_if = "Option::is_none")]
     pub app_guid: Option<String>,

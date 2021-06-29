@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingEndpoint {
     #[serde(rename = "host")]
     pub host: String,
@@ -23,15 +24,15 @@ pub struct ServiceBindingEndpoint {
 impl ServiceBindingEndpoint {
     pub fn new(host: String, ports: Vec<String>) -> ServiceBindingEndpoint {
         ServiceBindingEndpoint {
-            host: host,
-            ports: ports,
+            host,
+            ports,
             protocol: None,
         }
     }
 }
 
 /// 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Protocol {
     #[serde(rename = "tcp")]
     Tcp,

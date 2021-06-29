@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Plan {
     #[serde(rename = "id")]
     pub id: String,
@@ -22,21 +23,21 @@ pub struct Plan {
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
     pub metadata: Option<serde_json::Value>,
     #[serde(rename = "maintenance_info", skip_serializing_if = "Option::is_none")]
-    pub maintenance_info: Option<crate::models::MaintenanceInfo>,
+    pub maintenance_info: Option<Box<crate::models::MaintenanceInfo>>,
     #[serde(rename = "free", skip_serializing_if = "Option::is_none")]
     pub free: Option<bool>,
     #[serde(rename = "bindable", skip_serializing_if = "Option::is_none")]
     pub bindable: Option<bool>,
     #[serde(rename = "schemas", skip_serializing_if = "Option::is_none")]
-    pub schemas: Option<crate::models::Schemas>,
+    pub schemas: Option<Box<crate::models::Schemas>>,
 }
 
 impl Plan {
     pub fn new(id: String, name: String, description: String) -> Plan {
         Plan {
-            id: id,
-            name: name,
-            description: description,
+            id,
+            name,
+            description,
             metadata: None,
             maintenance_info: None,
             free: None,

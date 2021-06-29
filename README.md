@@ -1,4 +1,4 @@
-# Rust API client for openapi
+# Rust API client for rocl
 
 The Open Service Broker API defines an HTTP(S) interface between Platforms and Service Brokers.
 
@@ -43,13 +43,9 @@ Class | Method | HTTP request | Description
  - [Catalog](docs/Catalog.md)
  - [DashboardClient](docs/DashboardClient.md)
  - [Error](docs/Error.md)
- - [JsonSchema](docs/JsonSchema.md)
  - [LastOperationResource](docs/LastOperationResource.md)
  - [MaintenanceInfo](docs/MaintenanceInfo.md)
  - [Plan](docs/Plan.md)
- - [PositiveIntegerDefault0](docs/PositiveIntegerDefault0.md)
- - [Schema](docs/Schema.md)
- - [SchemaParameters](docs/SchemaParameters.md)
  - [Schemas](docs/Schemas.md)
  - [Service](docs/Service.md)
  - [ServiceBindingEndpoint](docs/ServiceBindingEndpoint.md)
@@ -62,12 +58,14 @@ Class | Method | HTTP request | Description
  - [ServiceBindingVolumeMount](docs/ServiceBindingVolumeMount.md)
  - [ServiceBindingVolumeMountDevice](docs/ServiceBindingVolumeMountDevice.md)
  - [ServiceInstanceAsyncOperation](docs/ServiceInstanceAsyncOperation.md)
+ - [ServiceInstanceMetadata](docs/ServiceInstanceMetadata.md)
  - [ServiceInstancePreviousValues](docs/ServiceInstancePreviousValues.md)
- - [ServiceInstanceProvisionRequest](docs/ServiceInstanceProvisionRequest.md)
+ - [ServiceInstanceProvisionRequestBody](docs/ServiceInstanceProvisionRequestBody.md)
  - [ServiceInstanceProvisionResponse](docs/ServiceInstanceProvisionResponse.md)
  - [ServiceInstanceResource](docs/ServiceInstanceResource.md)
  - [ServiceInstanceSchema](docs/ServiceInstanceSchema.md)
- - [ServiceInstanceUpdateRequest](docs/ServiceInstanceUpdateRequest.md)
+ - [ServiceInstanceSchemaCreate](docs/ServiceInstanceSchemaCreate.md)
+ - [ServiceInstanceUpdateRequestBody](docs/ServiceInstanceUpdateRequestBody.md)
 
 
 To get access to the crate's generated documentation, use:

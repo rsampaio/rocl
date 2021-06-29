@@ -10,10 +10,11 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingSchema {
     #[serde(rename = "create", skip_serializing_if = "Option::is_none")]
-    pub create: Option<crate::models::SchemaParameters>,
+    pub create: Option<Box<crate::models::ServiceInstanceSchemaCreate>>,
 }
 
 impl ServiceBindingSchema {

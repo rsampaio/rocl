@@ -10,12 +10,13 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Schemas {
     #[serde(rename = "service_instance", skip_serializing_if = "Option::is_none")]
-    pub service_instance: Option<crate::models::ServiceInstanceSchema>,
+    pub service_instance: Option<Box<crate::models::ServiceInstanceSchema>>,
     #[serde(rename = "service_binding", skip_serializing_if = "Option::is_none")]
-    pub service_binding: Option<crate::models::ServiceBindingSchema>,
+    pub service_binding: Option<Box<crate::models::ServiceBindingSchema>>,
 }
 
 impl Schemas {

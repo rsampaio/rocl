@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingRequest {
     /// See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more details.
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
@@ -22,20 +23,23 @@ pub struct ServiceBindingRequest {
     #[serde(rename = "app_guid", skip_serializing_if = "Option::is_none")]
     pub app_guid: Option<String>,
     #[serde(rename = "bind_resource", skip_serializing_if = "Option::is_none")]
-    pub bind_resource: Option<crate::models::ServiceBindingResouceObject>,
+    pub bind_resource: Option<Box<crate::models::ServiceBindingResouceObject>>,
     #[serde(rename = "parameters", skip_serializing_if = "Option::is_none")]
     pub parameters: Option<serde_json::Value>,
+    #[serde(rename = "predecessor_binding_id", skip_serializing_if = "Option::is_none")]
+    pub predecessor_binding_id: Option<String>,
 }
 
 impl ServiceBindingRequest {
     pub fn new(service_id: String, plan_id: String) -> ServiceBindingRequest {
         ServiceBindingRequest {
             context: None,
-            service_id: service_id,
-            plan_id: plan_id,
+            service_id,
+            plan_id,
             app_guid: None,
             bind_resource: None,
             parameters: None,
+            predecessor_binding_id: None,
         }
     }
 }

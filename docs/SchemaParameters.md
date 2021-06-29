@@ -1,10 +1,9 @@
 # SchemaParameters
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parameters** | [***serde_json::Value**](serde_json::Value.md) |  | [optional] 
+**parameters** | [***::models::JsonSchemaObject**](JSONSchemaObject.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

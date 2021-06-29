@@ -10,10 +10,11 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingResponse {
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<crate::models::ServiceBindingMetadata>,
+    pub metadata: Option<Box<crate::models::ServiceBindingMetadata>>,
     #[serde(rename = "credentials", skip_serializing_if = "Option::is_none")]
     pub credentials: Option<serde_json::Value>,
     #[serde(rename = "syslog_drain_url", skip_serializing_if = "Option::is_none")]

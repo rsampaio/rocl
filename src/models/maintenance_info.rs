@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MaintenanceInfo {
     #[serde(rename = "version")]
     pub version: String,
@@ -21,7 +22,7 @@ pub struct MaintenanceInfo {
 impl MaintenanceInfo {
     pub fn new(version: String) -> MaintenanceInfo {
         MaintenanceInfo {
-            version: version,
+            version,
             description: None,
         }
     }

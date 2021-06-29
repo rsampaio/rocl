@@ -10,16 +10,20 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceInstanceProvisionResponse {
     #[serde(rename = "dashboard_url", skip_serializing_if = "Option::is_none")]
     pub dashboard_url: Option<String>,
+    #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
+    pub metadata: Option<Box<crate::models::ServiceInstanceMetadata>>,
 }
 
 impl ServiceInstanceProvisionResponse {
     pub fn new() -> ServiceInstanceProvisionResponse {
         ServiceInstanceProvisionResponse {
             dashboard_url: None,
+            metadata: None,
         }
     }
 }

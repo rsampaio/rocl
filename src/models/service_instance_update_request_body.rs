@@ -10,32 +10,30 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub struct ServiceInstanceProvisionRequest {
-    #[serde(rename = "service_id")]
-    pub service_id: String,
-    #[serde(rename = "plan_id")]
-    pub plan_id: String,
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub struct ServiceInstanceUpdateRequestBody {
     /// See [Context Conventions](https://github.com/openservicebrokerapi/servicebroker/blob/master/profile.md#context-object) for more details.
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<serde_json::Value>,
-    #[serde(rename = "organization_guid")]
-    pub organization_guid: String,
-    #[serde(rename = "space_guid")]
-    pub space_guid: String,
+    #[serde(rename = "service_id")]
+    pub service_id: String,
+    #[serde(rename = "plan_id", skip_serializing_if = "Option::is_none")]
+    pub plan_id: Option<String>,
     #[serde(rename = "parameters", skip_serializing_if = "Option::is_none")]
     pub parameters: Option<serde_json::Value>,
+    #[serde(rename = "previous_values", skip_serializing_if = "Option::is_none")]
+    pub previous_values: Option<Box<crate::models::ServiceInstancePreviousValues>>,
 }
 
-impl ServiceInstanceProvisionRequest {
-    pub fn new(service_id: String, plan_id: String, organization_guid: String, space_guid: String) -> ServiceInstanceProvisionRequest {
-        ServiceInstanceProvisionRequest {
-            service_id: service_id,
-            plan_id: plan_id,
+impl ServiceInstanceUpdateRequestBody {
+    pub fn new(service_id: String) -> ServiceInstanceUpdateRequestBody {
+        ServiceInstanceUpdateRequestBody {
             context: None,
-            organization_guid: organization_guid,
-            space_guid: space_guid,
+            service_id,
+            plan_id: None,
             parameters: None,
+            previous_values: None,
         }
     }
 }

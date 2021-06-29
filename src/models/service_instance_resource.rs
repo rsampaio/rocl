@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceInstanceResource {
     #[serde(rename = "service_id", skip_serializing_if = "Option::is_none")]
     pub service_id: Option<String>,
@@ -20,6 +21,10 @@ pub struct ServiceInstanceResource {
     pub dashboard_url: Option<String>,
     #[serde(rename = "parameters", skip_serializing_if = "Option::is_none")]
     pub parameters: Option<serde_json::Value>,
+    #[serde(rename = "maintenance_info", skip_serializing_if = "Option::is_none")]
+    pub maintenance_info: Option<Box<crate::models::MaintenanceInfo>>,
+    #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
+    pub metadata: Option<Box<crate::models::ServiceInstanceMetadata>>,
 }
 
 impl ServiceInstanceResource {
@@ -29,6 +34,8 @@ impl ServiceInstanceResource {
             plan_id: None,
             dashboard_url: None,
             parameters: None,
+            maintenance_info: None,
+            metadata: None,
         }
     }
 }

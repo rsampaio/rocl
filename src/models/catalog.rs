@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Catalog {
     #[serde(rename = "services", skip_serializing_if = "Option::is_none")]
     pub services: Option<Vec<crate::models::Service>>,

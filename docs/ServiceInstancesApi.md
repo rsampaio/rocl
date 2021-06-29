@@ -22,12 +22,12 @@ deprovision a service instance
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | id of instance being deleted | Required | 
-**service_id** | **String** | id of the service associated with the instance being deleted | Required | 
-**plan_id** | **String** | id of the plan associated with the instance being deleted | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**accepts_incomplete** | **bool** | asynchronous deprovision supported |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | id of instance being deleted | [required] |
+**service_id** | **String** | id of the service associated with the instance being deleted | [required] |
+**plan_id** | **String** | id of the plan associated with the instance being deleted | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**accepts_incomplete** | Option<**bool**> | asynchronous deprovision supported |  |
 
 ### Return type
 
@@ -55,11 +55,11 @@ get a service instance
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to fetch | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**service_id** | **String** | id of the service associated with the instance |  | 
-**plan_id** | **String** | id of the plan associated with the instance |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to fetch | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**service_id** | Option<**String**> | id of the service associated with the instance |  |
+**plan_id** | Option<**String**> | id of the plan associated with the instance |  |
 
 ### Return type
 
@@ -87,11 +87,11 @@ get the last requested operation state for service instance
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to find last operation applied to it | Required | 
-**service_id** | **String** | id of the service associated with the instance |  | 
-**plan_id** | **String** | id of the plan associated with the instance |  | 
-**operation** | **String** | a provided identifier for the operation |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to find last operation applied to it | [required] |
+**service_id** | Option<**String**> | id of the service associated with the instance |  |
+**plan_id** | Option<**String**> | id of the plan associated with the instance |  |
+**operation** | Option<**String**> | a provided identifier for the operation |  |
 
 ### Return type
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Required | Notes
 
 ## service_instance_provision
 
-> crate::models::ServiceInstanceProvisionResponse service_instance_provision(x_broker_api_version, instance_id, service_instance_provision_request, x_broker_api_originating_identity, accepts_incomplete)
+> crate::models::ServiceInstanceProvisionResponse service_instance_provision(x_broker_api_version, instance_id, service_instance_provision_request_body, x_broker_api_originating_identity, accepts_incomplete)
 provision a service instance
 
 ### Parameters
@@ -119,11 +119,11 @@ provision a service instance
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to provision | Required | 
-**service_instance_provision_request** | [**ServiceInstanceProvisionRequest**](ServiceInstanceProvisionRequest.md) | parameters for the requested service instance provision | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**accepts_incomplete** | **bool** | asynchronous operations supported |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to provision | [required] |
+**service_instance_provision_request_body** | [**ServiceInstanceProvisionRequestBody**](ServiceInstanceProvisionRequestBody.md) | parameters for the requested service instance provision | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**accepts_incomplete** | Option<**bool**> | asynchronous operations supported |  |
 
 ### Return type
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Required | Notes
 
 ## service_instance_update
 
-> serde_json::Value service_instance_update(x_broker_api_version, instance_id, service_instance_update_request, x_broker_api_originating_identity, accepts_incomplete)
+> serde_json::Value service_instance_update(x_broker_api_version, instance_id, service_instance_update_request_body, x_broker_api_originating_identity, accepts_incomplete)
 update a service instance
 
 ### Parameters
@@ -151,11 +151,11 @@ update a service instance
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to update | Required | 
-**service_instance_update_request** | [**ServiceInstanceUpdateRequest**](ServiceInstanceUpdateRequest.md) | parameters for the requested service instance update | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**accepts_incomplete** | **bool** | asynchronous operations supported |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to update | [required] |
+**service_instance_update_request_body** | [**ServiceInstanceUpdateRequestBody**](ServiceInstanceUpdateRequestBody.md) | parameters for the requested service instance update | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**accepts_incomplete** | Option<**bool**> | asynchronous operations supported |  |
 
 ### Return type
 

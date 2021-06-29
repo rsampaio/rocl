@@ -21,12 +21,12 @@ generate a service binding
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to create a binding on | Required | 
-**binding_id** | **String** | binding id of binding to create | Required | 
-**service_binding_request** | [**ServiceBindingRequest**](ServiceBindingRequest.md) | parameters for the requested service binding | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**accepts_incomplete** | **bool** | asynchronous operations supported |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to create a binding on | [required] |
+**binding_id** | **String** | binding id of binding to create | [required] |
+**service_binding_request** | [**ServiceBindingRequest**](ServiceBindingRequest.md) | parameters for the requested service binding | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**accepts_incomplete** | Option<**bool**> | asynchronous operations supported |  |
 
 ### Return type
 
@@ -54,12 +54,12 @@ get a service binding
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance associated with the binding | Required | 
-**binding_id** | **String** | binding id of binding to fetch | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**service_id** | **String** | id of the service associated with the instance |  | 
-**plan_id** | **String** | id of the plan associated with the instance |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance associated with the binding | [required] |
+**binding_id** | **String** | binding id of binding to fetch | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**service_id** | Option<**String**> | id of the service associated with the instance |  |
+**plan_id** | Option<**String**> | id of the plan associated with the instance |  |
 
 ### Return type
 
@@ -87,12 +87,12 @@ get the last requested operation state for service binding
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | instance id of instance to find last operation applied to it | Required | 
-**binding_id** | **String** | binding id of service binding to find last operation applied to it | Required | 
-**service_id** | **String** | id of the service associated with the instance |  | 
-**plan_id** | **String** | id of the plan associated with the instance |  | 
-**operation** | **String** | a provided identifier for the operation |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | instance id of instance to find last operation applied to it | [required] |
+**binding_id** | **String** | binding id of service binding to find last operation applied to it | [required] |
+**service_id** | Option<**String**> | id of the service associated with the instance |  |
+**plan_id** | Option<**String**> | id of the plan associated with the instance |  |
+**operation** | Option<**String**> | a provided identifier for the operation |  |
 
 ### Return type
 
@@ -120,13 +120,13 @@ deprovision a service binding
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | Required | [default to 2.13]
-**instance_id** | **String** | id of the instance associated with the binding being deleted | Required | 
-**binding_id** | **String** | id of the binding being deleted | Required | 
-**service_id** | **String** | id of the service associated with the instance for which a binding is being deleted | Required | 
-**plan_id** | **String** | id of the plan associated with the instance for which a binding is being deleted | Required | 
-**x_broker_api_originating_identity** | **String** | identity of the user that initiated the request from the Platform |  | 
-**accepts_incomplete** | **bool** | asynchronous operations supported |  | 
+**x_broker_api_version** | **String** | version number of the Service Broker API that the Platform will use | [required] |[default to 2.13]
+**instance_id** | **String** | id of the instance associated with the binding being deleted | [required] |
+**binding_id** | **String** | id of the binding being deleted | [required] |
+**service_id** | **String** | id of the service associated with the instance for which a binding is being deleted | [required] |
+**plan_id** | **String** | id of the plan associated with the instance for which a binding is being deleted | [required] |
+**x_broker_api_originating_identity** | Option<**String**> | identity of the user that initiated the request from the Platform |  |
+**accepts_incomplete** | Option<**bool**> | asynchronous operations supported |  |
 
 ### Return type
 

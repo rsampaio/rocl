@@ -10,7 +10,8 @@
 
 
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ServiceBindingVolumeMountDevice {
     #[serde(rename = "volume_id")]
     pub volume_id: String,
@@ -21,7 +22,7 @@ pub struct ServiceBindingVolumeMountDevice {
 impl ServiceBindingVolumeMountDevice {
     pub fn new(volume_id: String) -> ServiceBindingVolumeMountDevice {
         ServiceBindingVolumeMountDevice {
-            volume_id: volume_id,
+            volume_id,
             mount_config: None,
         }
     }
